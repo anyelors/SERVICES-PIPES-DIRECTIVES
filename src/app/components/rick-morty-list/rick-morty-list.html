@@ -1,15 +1,17 @@
-
-<section class="contenedor">
-    @if(personajes) {
+<section>
+    <div class="contenedor" *ngIf="!(_rickMortyService.loading$ | async) && personajes.length > 0">
         @for (personaje of personajes; track personaje.id) {
-            <article class="ficha">
-                <img [src]="personaje.image" alt="Imagen de {{personaje.name}}">
-                <p class="nombre">{{personaje.name}}</p>
-                <p><strong>Especie:</strong> {{personaje.species}}</p>
-                <p><strong>Estado:</strong> {{personaje.status}}</p>
-            </article>
+        <article class="ficha">
+            <img [src]="personaje.image" alt="Imagen de {{personaje.name}}">
+            <p class="nombre">{{personaje.name}}</p>
+            <p><strong>Especie:</strong> {{personaje.species}}</p>
+            <p><strong>Estado:</strong> {{personaje.status}}</p>
+        </article>
         }
-    } @else {
-        <app-loading></app-loading>
-    }
+    </div>
 </section>
+
+
+<div class="loading-overlay" *ngIf="_rickMortyService.loading$ | async">
+    <app-loading></app-loading>
+</div>
