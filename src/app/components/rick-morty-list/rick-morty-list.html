@@ -1,16 +1,15 @@
+
 <section class="contenedor">
-    @if(!estaCargado) {
-        <div class="contenedor-preloader">
-            <img src="../img/preloader.gif" alt="" srcset="">
-        </div>
-    }@else {
-         @for (personaje of personajes; track personaje.id) {
-        <article class="ficha">
-            <img [src]="personaje.image" alt="Imagen de {{personaje.name}}">
-            <p class="nombre">{{personaje.name}}</p>
-            <p><strong>Especie:</strong> {{personaje.species}}</p>
-            <p><strong>Estado:</strong> {{personaje.status}}</p>
-        </article>
+    @if(personajes) {
+        @for (personaje of personajes; track personaje.id) {
+            <article class="ficha">
+                <img [src]="personaje.image" alt="Imagen de {{personaje.name}}">
+                <p class="nombre">{{personaje.name}}</p>
+                <p><strong>Especie:</strong> {{personaje.species}}</p>
+                <p><strong>Estado:</strong> {{personaje.status}}</p>
+            </article>
         }
+    } @else {
+        <app-loading></app-loading>
     }
 </section>

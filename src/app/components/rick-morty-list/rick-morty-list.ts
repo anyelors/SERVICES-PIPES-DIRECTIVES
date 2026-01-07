@@ -1,16 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RickMorty } from '../../services/rick-morty';
 import { Dato, Personaje } from '../../models/entities';
+import { Loading } from "../loading/loading";
 
 @Component({
   selector: 'app-rick-morty-list',
-  imports: [],
+  imports: [Loading],
   templateUrl: './rick-morty-list.html',
   styleUrl: './rick-morty-list.css',
 })
 export class RickMortyList implements OnInit {
 
-  estaCargado: boolean = false;
   nPagina: number = 1;
 
   _rickMortyService:RickMorty = inject(RickMorty);
@@ -30,8 +30,7 @@ export class RickMortyList implements OnInit {
         }
         ,
         complete: () => {
-          this.estaCargado = true;
-          console.log(this.estaCargado);
+          console.log('Carga de personajes completada');
         }
     });
   }

@@ -11,7 +11,7 @@ export class RickMorty {
   _http:HttpClient = inject(HttpClient);
 
   getPersonajes(nPagina:number):Observable<Dato>{
-    console.log('Página solicitada:', nPagina);
+    //console.log('Página solicitada:', nPagina);
     return this._http.get<Dato>(`https://rickandmortyapi.com/api/character?page=${nPagina}`);
   }
   
