@@ -25,11 +25,13 @@ export class RickMortyList implements OnInit {
           console.log(this.personajes);
         }
         ,
-        error: (error) => {console.error('Error al cargar los personajes', error);}
+        error: (error) => {
+          console.error('Error al cargar los personajes', error);
+        }
         ,
         complete: () => {
-          console.log(this.estaCargado);
           this.estaCargado = true;
+          console.log(this.estaCargado);
         }
     });
   }

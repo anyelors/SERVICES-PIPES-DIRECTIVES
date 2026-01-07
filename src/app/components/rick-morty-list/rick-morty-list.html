@@ -1,6 +1,10 @@
 <section class="contenedor">
-    @if(estaCargado) {
-        @for (personaje of personajes; track personaje.id) {
+    @if(!estaCargado) {
+        <div class="contenedor-preloader">
+            <img src="../img/preloader.gif" alt="" srcset="">
+        </div>
+    }@else {
+         @for (personaje of personajes; track personaje.id) {
         <article class="ficha">
             <img [src]="personaje.image" alt="Imagen de {{personaje.name}}">
             <p class="nombre">{{personaje.name}}</p>
@@ -8,9 +12,5 @@
             <p><strong>Estado:</strong> {{personaje.status}}</p>
         </article>
         }
-    }@else {
-        <div class="contenedor-preloader">
-            <img src="/img/preloader.gif" alt="" srcset="">
-        </div>
     }
 </section>
