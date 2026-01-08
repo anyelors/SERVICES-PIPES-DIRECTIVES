@@ -1,0 +1,57 @@
+.principal {
+    
+}
+
+.ficha{
+    display: flex;
+    padding: 18px;
+    width: 940px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+.imagen-contenedor{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen-contenedor img{
+    width: 168px;
+    height: auto;
+    /* Esto hace que el fonde de la imagen se vea transparente */
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
+}
+
+.datos-contenedor{
+    width: 60%;
+    background-color: orange;
+}
+
+.iconos-precio-contenedor{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.iconos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.iconos i{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.iconos i:hover{
+    color: #7e007e;
+}
+
+.precio{
+    font-size: 26px;
+    font-weight: bold;
+    text-align: right;
+}
