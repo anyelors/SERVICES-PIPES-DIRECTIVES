@@ -1,13 +1,35 @@
+@if(estaCargado()) {
 <section class="principal">
+    @for (instrumento of instrumentos; track instrumento.id) {
     <article class="ficha">
         <div class="imagen-contenedor">
-            <img src="/img/prueba.webp" alt="Imagen de Bajos">
+            <img [src]="instrumento.imagen" alt="Imagen de Bajos">
         </div>
         <div class="datos-contenedor">
-
+            <div>
+                <div>
+                    <span class="titular-fabricante">{{instrumento.fabricante}}</span>
+                    <span class="modelo">{{instrumento.modelo}}</span>
+                </div>
+                <div class="contenedor-likes">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <span class="numero-likes">{{instrumento.numeroLikes}}</span>
+                </div>
+                <ul class="caracteristicas-principales">
+                    <li>{{instrumento.caracteristica1}}</li>
+                    <li>{{instrumento.caracteristica2}}</li>
+                    <li>{{instrumento.caracteristica3}}</li>
+                </ul>
+            </div>
+            <div class="etiqueta-stok">
+                <span class="en-stock">{{instrumento.stock > 0 ? "En Stock" : "Agotado"}}</span>
+            </div>
         </div>
         <div class="iconos-precio-contenedor">
-            <p class="precio">1.200 €</p>
+            <p class="precio">{{instrumento.pvp}} €</p>
             <div class="iconos">
                 <i class="fa-regular fa-paste"></i>
                 <i class="fa-regular fa-heart"></i>
@@ -15,4 +37,10 @@
             </div>
         </div>
     </article>
+    }
 </section>
+}@else {
+<div class="loading-overlay">
+    <app-loading></app-loading>
+</div>
+}
