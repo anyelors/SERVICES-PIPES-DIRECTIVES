@@ -3,7 +3,7 @@
     @for (instrumento of instrumentos; track instrumento.id) {
     <article class="ficha">
         <div class="imagen-contenedor">
-            <img [src]="instrumento.imagen" alt="Imagen de Bajos">
+            <img [src]="instrumento.imagen ? instrumento.imagen : 'img/no-disponible.avif'" alt="Imagen de Bajos">
         </div>
         <div class="datos-contenedor">
             <div>
@@ -12,6 +12,7 @@
                     <span class="modelo">{{instrumento.modelo}}</span>
                 </div>
                 <div class="contenedor-likes">
+                    <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
@@ -25,7 +26,7 @@
                 </ul>
             </div>
             <div class="etiqueta-stok">
-                <span class="en-stock">{{instrumento.stock > 0 ? "En Stock" : "Agotado"}}</span>
+                <span class="en-stock" [style.color]="instrumento.stock > 0 ? 'green' : 'red'" >{{instrumento.stock > 0 ? "En Stock" : "Agotado"}}</span>
             </div>
         </div>
         <div class="iconos-precio-contenedor">
@@ -40,7 +41,7 @@
     }
 </section>
 }@else {
-<div class="loading-overlay">
-    <app-loading></app-loading>
-</div>
+    <div class="loading-overlay">
+        <app-loading></app-loading>
+    </div>
 }
