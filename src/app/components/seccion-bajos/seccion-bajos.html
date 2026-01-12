@@ -1,9 +1,9 @@
 @if(estaCargado()) {
 <section class="principal">
-    @for (instrumento of instrumentos; track instrumento.id) {
+    @for (instrumento of instrumentos(); track instrumento.id) {
     <article class="ficha">
         <div class="imagen-contenedor">
-            <img [src]="instrumento.imagen ? instrumento.imagen : 'img/no-disponible.avif'" alt="Imagen de Bajos">
+            <img appNoImagen [src]="instrumento.imagen" alt="{{instrumento.fabricante}} {{instrumento.modelo}}">
         </div>
         <div class="datos-contenedor">
             <div>
@@ -26,11 +26,15 @@
                 </ul>
             </div>
             <div class="etiqueta-stok">
-                <span class="en-stock" [style.color]="instrumento.stock > 0 ? 'green' : 'red'" >{{instrumento.stock > 0 ? "En Stock" : "Agotado"}}</span>
+                <p [ngClass]="{
+                    'en-stock': instrumento.stock > 5,
+                    'poco-stock': instrumento.stock > 0 && instrumento.stock <= 5,
+                    'no-hay-stock': instrumento.stock === 0
+                }">{{instrumento.stock | stock}}</p>
             </div>
         </div>
         <div class="iconos-precio-contenedor">
-            <p class="precio">{{instrumento.pvp}} €</p>
+            <p class="precio">{{instrumento.pvp | euros}}</p>
             <div class="iconos">
                 <i class="fa-regular fa-paste"></i>
                 <i class="fa-regular fa-heart"></i>

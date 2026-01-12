@@ -1,9 +1,10 @@
 .principal {
-    
+    padding: 20px;
 }
 
 .ficha{
     display: flex;
+    margin-bottom: 20px;
     padding: 18px;
     width: 940px;
     background-color: #f3f3f3;
@@ -18,7 +19,7 @@
 
 .imagen-contenedor img{
     width: 168px;
-    height: auto;
+    height: 168px;
     /* Esto hace que el fonde de la imagen se vea transparente */
     filter: brightness(1.1);
     mix-blend-mode: multiply;
@@ -69,8 +70,16 @@
     padding-right: 6px;
 }
 
+.no-hay-stock{
+    color: red;
+}
+
 .en-stock{
-    color:  #4caf50;
+    color: green;
+}
+
+.poco-stock{
+    color: orangered;
 }
 
 .iconos-precio-contenedor{
