@@ -13,14 +13,6 @@
                 </div>
                 <div class="contenedor-likes">
                     <app-estrellas-likes [nLikes]="instrumento.numeroLikes"/>
-                    <!--
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <span class="numero-likes">{{instrumento.numeroLikes}}</span>
-                    -->
                 </div>
                 <ul class="caracteristicas-principales">
                     <li appFondoAmarillo>{{instrumento.caracteristica1}}</li>
@@ -40,10 +32,7 @@
             <p class="precio">{{instrumento.pvp | euros}}</p>
             <div class="iconos">
                 <i class="fa-regular fa-paste"></i>
-                <i  [ngClass]="{
-                    'fa-regular': favorito(),
-                    'fa-solid': !favorito(),
-                    }" class="fa-heart" (click)="fnFavorito()"></i> 
+                <app-corazon-favoritos/>
                 <i class="fa-solid fa-cart-shopping"></i>
             </div>
         </div>
@@ -52,6 +41,6 @@
 </section>
 }@else {
     <div class="loading-overlay">
-        <app-loading></app-loading>
+        <app-loading/>
     </div>
 }

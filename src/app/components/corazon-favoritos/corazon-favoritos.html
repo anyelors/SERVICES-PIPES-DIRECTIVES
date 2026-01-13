@@ -1,1 +1,9 @@
-<p>corazon-favoritos works!</p>
+<i
+  [ngClass]="{
+    'fa-regular': favorito(),
+    'fa-solid': !favorito(),
+    }"
+  class="fa-heart"
+  (click)="fnFavorito()"
+>
+</i>
