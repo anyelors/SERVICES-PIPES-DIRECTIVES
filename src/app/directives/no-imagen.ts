@@ -13,6 +13,4 @@ export class NoImagen {
     this._renderer2.setAttribute(this._nodoDOM.nativeElement, 'src', 'img/no-disponible.avif');
   }
 
-
-
 }

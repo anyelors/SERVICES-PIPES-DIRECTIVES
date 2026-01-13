@@ -1,0 +1,16 @@
+.contenedor-likes{
+    margin-top: 15px;
+}
+
+.numero-likes{
+    margin-left: 8px;
+}
+
+.numero-likes span{
+    color: #8a8a8a;
+    font-weight: bold;
+}
+
+i{
+    font-size: 1rem;
+}

@@ -6,16 +6,19 @@ import { StockPipe } from "../../pipes/stock-pipe";
 import { NgClass } from '@angular/common';
 import { EurosPipe } from "../../pipes/euros-pipe";
 import { NoImagen } from '../../directives/no-imagen';
+import { FondoAmarillo } from '../../directives/fondo-amarillo';
+import { EstrellasLikes } from "../estrellas-likes/estrellas-likes";
 
 @Component({
   selector: 'app-seccion-bajos',
-  imports: [Loading, StockPipe, NgClass, EurosPipe, NoImagen],
+  imports: [Loading, StockPipe, NgClass, EurosPipe, NoImagen, FondoAmarillo, EstrellasLikes],
   templateUrl: './seccion-bajos.html',
   styleUrl: './seccion-bajos.css',
 })
 export class SeccionBajos implements OnInit{
 
   estaCargado = signal<boolean>(false);
+  favorito = signal<boolean>(true);
 
   _InstrumentosService: ServicesThomann = inject(ServicesThomann);
   //instrumentos: Array<Instrumento> = [];
@@ -42,6 +45,10 @@ export class SeccionBajos implements OnInit{
             this.estaCargado.set(true);
           }
         });
+  }
+
+  fnFavorito() {
+    this.favorito.update((favorito) => !favorito);
   }
 
 }
