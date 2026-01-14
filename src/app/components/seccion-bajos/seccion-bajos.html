@@ -1,46 +1,11 @@
 @if(estaCargado()) {
 <section class="principal">
     @for (instrumento of instrumentos(); track instrumento.id) {
-    <article class="ficha">
-        <div class="imagen-contenedor">
-            <img appNoImagen [src]="instrumento.imagen" alt="{{instrumento.fabricante}} {{instrumento.modelo}}">
-        </div>
-        <div class="datos-contenedor">
-            <div>
-                <div>
-                    <span class="titular-fabricante">{{instrumento.fabricante}}</span>
-                    <span class="modelo">{{instrumento.modelo}}</span>
-                </div>
-                <div class="contenedor-likes">
-                    <app-estrellas-likes [nLikes]="instrumento.numeroLikes"/>
-                </div>
-                <ul class="caracteristicas-principales">
-                    <li appFondoAmarillo>{{instrumento.caracteristica1}}</li>
-                    <li>{{instrumento.caracteristica2}}</li>
-                    <li>{{instrumento.caracteristica3}}</li>
-                </ul>
-            </div>
-            <div class="etiqueta-stok">
-                <p [ngClass]="{
-                    'en-stock': instrumento.stock > 5,
-                    'poco-stock': instrumento.stock > 0 && instrumento.stock <= 5,
-                    'no-hay-stock': instrumento.stock === 0
-                }">{{instrumento.stock | stock}}</p>
-            </div>
-        </div>
-        <div class="iconos-precio-contenedor">
-            <p class="precio">{{instrumento.pvp | euros}}</p>
-            <div class="iconos">
-                <i class="fa-regular fa-paste"></i>
-                <app-corazon-favoritos/>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-    </article>
+        <app-ficha-instrumento [instrumento]="instrumento" />
     }
 </section>
 }@else {
-    <div class="loading-overlay">
-        <app-loading/>
-    </div>
+<div class="loading-overlay">
+    <app-loading />
+</div>
 }

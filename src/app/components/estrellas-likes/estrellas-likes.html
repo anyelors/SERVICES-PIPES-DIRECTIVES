@@ -1,7 +1,7 @@
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
-<i class="fa-solid fa-star"></i>
+@for (estrella of estrellasLikes; track $index) {
+    <i [class]="estrella"></i>
+}
+@for (estrellaNo of estrellasNoLikes; track $index) {
+    <i [class]="estrellaNo"></i>
+}
 <span class="numero-likes">{{nLikes}}</span>
-
